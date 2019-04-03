@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Foodie</string>
+
+    <string name="hi">Hi, Murtiono Widi</string>
+    <string name="saldo">Saldo Rp 72,000</string>
+
+    <string name="home">Home</string>
+    <string name="order">Pesanan</string>
+    <string name="wallet">Wallet</string>
+    <string name="referral">Referral</string>
+    <string name="price">Harga</string>
+    <string name="new_product">New Product</string>
+    <string name="featured_product">Featured Product</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="event">Event</string>
+
+    <string name="var_food">Jenis Makanan</string>
+    <string name="nusantara">Nusantara</string>
+    <string name="western">Western</string>
+    <string name="japanase">Japanase</string>
+    <string name="chinese">Chinese</string>
+    <string name="healthy">Healthy</string>
+    <string name="oriental">Oriental</string>
+</resources>
