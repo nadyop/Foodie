@@ -4,7 +4,7 @@ import com.nad.foodie.api.response.MenuResponse
 
 interface MenuMapper {
     companion object {
-        fun mapToTourDetailUiModel(item: MenuResponse): MenuUiModel {
+        fun mapToMenuUiModel(item: MenuResponse): MenuUiModel {
             return MenuUiModel(
                 item.name_menu.orEmpty(),
                 item.price_menu.orEmpty(),

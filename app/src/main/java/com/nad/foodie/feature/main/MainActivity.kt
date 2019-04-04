@@ -10,6 +10,9 @@ import com.nad.foodie.R
 import com.nad.foodie.databinding.ActivityMainBinding
 import com.nad.foodie.feature.base.BaseActivity
 import com.nad.foodie.feature.dashboard.DashboardFragment
+import com.nad.foodie.feature.order.OrderFragment
+import com.nad.foodie.feature.referral.ReferralFragment
+import com.nad.foodie.feature.wallet.WalletFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -56,12 +59,18 @@ class MainActivity : BaseActivity(), MainContract.View, HasSupportFragmentInject
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_order -> {
+                val fragment = OrderFragment()
+                addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_wallet -> {
+                val fragment = WalletFragment()
+                addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_referral -> {
+                val fragment = ReferralFragment()
+                addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
         }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Foodie</string>
 
-    <string name="hi">Hi, Murtiono Widi</string>
+    <string name="hi">Hi, Nadya</string>
     <string name="saldo">Saldo Rp 72,000</string>
 
     <string name="home">Home</string>
@@ -15,7 +15,16 @@
     <string name="dinner">Dinner</string>
     <string name="event">Event</string>
 
-    <string name="var_food">Jenis Makanan</string>
+    <string name="budget">Budget</string>
+    <string name="budget_desc">Kurang dari 25rb</string>
+    <string name="value">Value</string>
+    <string name="value_desc">Dari 25rb - 34rb</string>
+    <string name="casual">Casual</string>
+    <string name="casual_desc">Dari 35rb - 49rb</string>
+    <string name="premium">Premium</string>
+    <string name="premium_desc">Lebih dari 50rb</string>
+
+    <string name="var_food">Jenis Masakan</string>
     <string name="nusantara">Nusantara</string>
     <string name="western">Western</string>
     <string name="japanase">Japanase</string>

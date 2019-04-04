@@ -6,11 +6,13 @@ import com.nad.foodie.feature.dashboard.model.MenuUiModel
 class DashboardContract {
 
     interface View : BaseContract.View {
-        fun fetchMenu(list: MutableList<MenuUiModel>)
+        fun fetchMenuSuccess(list: MutableList<MenuUiModel>)
+//        fun fetchPromoSuccess(list: MutableList<MenuUiModel>)
     }
 
     interface Presenter : BaseContract.Presenter {
-//        fun fetchData()
+        fun fetchMenu()
+        fun fetchPromo()
         fun attachView(view: View)
     }
 }

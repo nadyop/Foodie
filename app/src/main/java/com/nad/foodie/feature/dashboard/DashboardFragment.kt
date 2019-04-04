@@ -2,8 +2,8 @@ package com.nad.foodie.feature.dashboard
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.view.menu.MenuAdapter
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,28 +39,21 @@ class DashboardFragment : BaseFragment() , DashboardContract.View {
     }
 
     private fun initView() {
-        val layoutManager = GridLayoutManager(context, 2)
-//        binding.recyclerView.layoutManager = layoutManager
+        val layoutManager = GridLayoutManager(context, 1)
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        binding.rvFeaturedMenu.layoutManager = layoutManager
 
-//        if (menuAdapter == null) {
-//            menuAdapter = MenuAdapter(ArrayList())
-//        }
-//        binding.recyclerView.adapter = menuAdapter
-
-//        presenter.fetchData()
-    }
-
-    override fun fetchMenu(list: MutableList<MenuUiModel>) {
-//        menuAdapter?.addItems(list)
-//        recyclerView.adapter = menuAdapter
-    }
-
-    override fun showProgress(show: Boolean) {
-        if (show) {
-//            binding.progressBar.visibility = View.VISIBLE
-        } else {
-//            binding.progressBar.visibility = View.GONE
+        if (menuAdapter == null) {
+            menuAdapter = MenuAdapter(ArrayList())
         }
+        binding.rvFeaturedMenu.adapter = menuAdapter
+
+        presenter.fetchMenu()
+    }
+
+    override fun fetchMenuSuccess(list: MutableList<MenuUiModel>) {
+        menuAdapter?.addItems(list)
+        binding.rvFeaturedMenu.adapter = menuAdapter
     }
 
 }
