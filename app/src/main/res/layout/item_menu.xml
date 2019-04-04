@@ -67,7 +67,7 @@
 
             <ImageView
                     android:id="@+id/iv_icon"
-                    android:layout_width="@dimen/icon_size_larger_super"
+                    android:layout_width="@dimen/icon_size_large"
                     android:layout_height="@dimen/icon_size_normal"
                     app:srcCompat="@drawable/wendy"
                     android:layout_marginTop="@dimen/spacing_smaller"

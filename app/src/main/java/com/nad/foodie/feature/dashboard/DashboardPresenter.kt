@@ -1,12 +1,14 @@
 package com.nad.foodie.feature.dashboard
 
-import android.util.Log
 import com.nad.foodie.api.ApiInterface
 import com.nad.foodie.api.RestListResponse
 import com.nad.foodie.api.response.MenuResponse
+import com.nad.foodie.api.response.PromoResponse
 import com.nad.foodie.feature.base.BasePresenter
 import com.nad.foodie.feature.dashboard.model.MenuMapper
 import com.nad.foodie.feature.dashboard.model.MenuUiModel
+import com.nad.foodie.feature.dashboard.model.PromoMapper
+import com.nad.foodie.feature.dashboard.model.PromoUiModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -23,7 +25,6 @@ class DashboardPresenter @Inject constructor(private val api: ApiInterface) :
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ list: RestListResponse<MenuResponse> ->
                 view.showProgress(false)
-                Log.d("AAAAZ", "sukses nihh")
                 val listItems: MutableList<MenuUiModel> = ArrayList()
                 list.data.forEach { contentElement ->
                     listItems.add(MenuMapper.mapToMenuUiModel(contentElement))
@@ -31,14 +32,26 @@ class DashboardPresenter @Inject constructor(private val api: ApiInterface) :
                 view.fetchMenuSuccess(listItems)
             }, { error ->
                 view.showProgress(false)
-                Log.d("AAAAZ", "error nihh data get+ ==== + ${error.message} + ==== + ${error.cause}")
             })
 
         subscriptions.add(subscribe)
     }
 
     override fun fetchPromo() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val subscribe = api.getPromo().subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ list: RestListResponse<PromoResponse> ->
+                view.showProgress(false)
+                val listItems: MutableList<PromoUiModel> = ArrayList()
+                list.data.forEach { contentElement ->
+                    listItems.add(PromoMapper.mapToPromoUiModel(contentElement))
+                }
+                view.fetchPromoSuccess(listItems)
+            }, { error ->
+                view.showProgress(false)
+            })
+
+        subscriptions.add(subscribe)
     }
 
     override fun attachView(view: DashboardContract.View) {
